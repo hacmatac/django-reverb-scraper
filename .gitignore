@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+
+# Static files
+/static/
+
+# Python-decouple environment file
+.env
+
+# Logs and database files
+*.log
+*.sqlite3
+celerybeat-schedule.db
+
+# Linux swap files and temp files
+*.swp
+*.swo
+*~
+.tmp
+
+# Caches
+.cache/
+coverage/
+*.egg-info/
+dist/
+
+# Distribution / packaging
+build/
+develop-eggs/
+eggs/
+.installed.cfg
+*.egg
+.Python
+
+# Ignore the media directory
+/media/
+
+# Ignore migrations directories
+*/migrations/*
+!*/migrations/__init__.py
