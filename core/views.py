@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from .forms import SearchUrlForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,15 +28,11 @@ class DashboardView(LoginRequiredMixin, View):
 
             start_scrape_job.delay(job.id)
             jobs = Job.objects.filter(profile=request.user.profile)
-            context = {"form": self.form_class(), "jobs": jobs, "new_job_id": job.id}
-            return render(request, self.template_name, context)
+            return redirect("core:dashboard")
 
         jobs = Job.objects.filter(profile=request.user.profile)
         context = {"form": form, "jobs": jobs}
         return render(request, self.template_name, context)
-
-from django.http import HttpResponse
-import os
 
 def download_job_json(request, job_id):
     filepath = os.path.join(settings.MEDIA_ROOT, "job_json", f"job_{job_id}.json")

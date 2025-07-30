@@ -46,10 +46,10 @@ class Job(models.Model):
 class Listing(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name="listings")
     url = models.URLField()
-    title = models.CharField(max_length=200)
+    title = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    seller = models.CharField(max_length=100)
-    location = models.CharField(max_length=100, blank=True)
+    seller = models.TextField()
+    location = models.TextField(blank=True)
     condition = models.CharField(max_length=50, blank=True)
     listed = models.CharField(max_length=50, blank=True)
     fetched_at = models.DateTimeField(auto_now_add=True)
