@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from scraper.models import Job
 from scraper.tasks import start_scrape_job
 from django.conf import settings
+from django.http import HttpResponse
 import os
 
 class DashboardView(LoginRequiredMixin, View):
