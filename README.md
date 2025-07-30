@@ -12,5 +12,6 @@ A Django web app that scrapes Reverb.com listings from a search URL you provide 
 - Scrapes listing details: title, price, seller, location, condition, and time since posted.
 - Export scraped data as JSON.
 
+The deployment at the demo site runs with limited server resources—please use search queries that return a reasonable number of results for the smoothest test experience.
 ---
 *For demonstration and review purposes only.*
