@@ -49,7 +49,7 @@
               </a>
             </td>
             <td>
-              {% if job.status == 'completed' and job.json_file_url %}
+              {% if job.status == 'completed' %}
                 <a href="{% url 'core:download_job_json' job.id %}" target="_blank" rel="noopener noreferrer">
                   Download JSON
                 </a>
