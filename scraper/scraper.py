@@ -237,7 +237,6 @@ def run_scraper_for_job(job):
         with open(file_path, "w") as f:
             f.write(json_content)
 
-        job.json_file_url = os.path.join(settings.MEDIA_URL, "job_json", filename)
         job.save()
 
     except Exception as e:

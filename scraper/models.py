@@ -30,8 +30,6 @@ class Job(models.Model):
         help_text="URL entered by the user for scraping",
     )
 
-    json_file_url = models.CharField(max_length=255, blank=True)
-
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
     ended_at = models.DateTimeField(null=True, blank=True)
