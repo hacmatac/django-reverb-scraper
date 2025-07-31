@@ -8,23 +8,15 @@
   {% load static %}
   <link rel="icon" href="{% static 'core/img/favicon.ico' %}" type="image/x-icon">
   <link rel="apple-touch-icon" href="{% static 'core/img/apple-touch-icon.png' %}">
-  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
   {% block styles %}
   {% endblock %}
 </head>
 <body>
-  <header id="site-header">
-    {% if user.is_authenticated %}
-      <form method="post" action="{% url 'accounts:logout' %}" id="logout-form">
-        {% csrf_token %}
-        <button type="submit">Log Out</button>
-      </form>
-    {% endif %}
-  </header>
-  <main id="site-content">
-    {% block content %}
-    {% endblock %}
-  </main>
+  {% block header %}
+  {% endblock %}
+  {% block content %}
+  {% endblock %}
   {% block body_scripts %}
   {% endblock %}
 </body>

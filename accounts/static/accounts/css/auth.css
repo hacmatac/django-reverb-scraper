@@ -1,4 +1,11 @@
-#login-form {
+.site-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.login-form {
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -8,7 +15,7 @@
   margin: 5rem 0;
 }
 
-#login-form input {
+.login-form input {
   border: 1px solid #111111;
   width: 80%; 
   height: 4rem;
@@ -20,7 +27,7 @@
   outline: none;
 }
 
-#login-form button {
+.login-form button {
   background: none;
   background-color: #1976d2; 
   cursor: pointer;
@@ -33,43 +40,43 @@
   border: 1px solid #1976d2;
 }
 
-#login-form button:hover {
+.login-form button:hover {
   background-color: #1565c0;
   border: 1px solid #1565c0;
 }
 
 @media (min-width: 375px) {
-  #login-form {
+  .login-form {
     width: 80%;
   }  
 }
 
 @media (min-width: 425px) {
-  #login-form {
+  .login-form {
     width: 60%;
   }  
 }
 
 @media (min-width: 768px) {
-  #login-form {
+  .login-form {
     width: 50%;
   }  
 }
 
 @media (min-width: 1024px) {
-  #login-form {
+  .login-form {
     width: 30%;
   }  
 }
 
 @media (min-width: 1280px) {
-  #login-form {
+  .login-form {
     width: 25%;
   }  
 }
 
 @media (min-width: 1440px) {
-  #login-form {
+  .login-form {
     width: 20%;
   }  
 }

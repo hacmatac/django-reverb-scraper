@@ -6,36 +6,37 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'accounts/css/auth.css' %}">
 {% endblock %}
-
 {% block content %}
-  <form method="post" autocomplete="off" id="login-form">
-    {% csrf_token %}
-    {% if next %}
-      <input type="hidden" name="next" value="{{ next }}">
-    {% endif %}
-    {{ form.username }}
-    {% if form.username.errors %}
-      <ul>
-      {% for error in form.username.errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-      </ul>
-    {% endif %}
-    {{ form.password }}
-    {% if form.password.errors %}
-      <ul>
-      {% for error in form.password.errors %}
-        <li>{{ error }}</li>        
-      {% endfor %}
-      </ul>
-    {% endif %}
-    {% if form.non_field_errors %}
-      <ul>
-      {% for error in form.non_field_errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-      </ul>
-    {% endif %}
-    <button type="submit">Log In</button>
-  </form>
+  <main class="site-content">
+    <form method="post" autocomplete="off" class="login-form">
+      {% csrf_token %}
+      {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+      {% endif %}
+      {{ form.username }}
+      {% if form.username.errors %}
+        <ul>
+        {% for error in form.username.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {{ form.password }}
+      {% if form.password.errors %}
+        <ul>
+        {% for error in form.password.errors %}
+          <li>{{ error }}</li>        
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% if form.non_field_errors %}
+        <ul>
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      <button type="submit">Log In</button>
+    </form>
+  </main>
 {% endblock %}

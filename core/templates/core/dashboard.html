@@ -1,69 +1,76 @@
-{% extends "core/base.html" %}
+{% extends "core/index.html" %}
 {% block title %}
   Dashboard | Reverb Scraper
 {% endblock %}
+{% block styles %}
+  {{ block.super }}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'core/css/dashboard.css' %}">
+{% endblock %}
 {% block content %}
-  <form method="post" id="search-url-form">
-    {% csrf_token %}
-    <div>
-      {{ form.reverb_url }}
-      <button type="submit">Start Scraping</button>
-    </div>
-    {% if form.reverb_url.errors %}
-    <ul>
-      {% for error in form.reverb_url.errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% if form.non_field_errors %}
+  <main class="site-content">
+    <form method="post" class="search-url-form">
+      {% csrf_token %}
+      <div>
+        {{ form.reverb_url }}
+        <button type="submit">Start Scraping</button>
+      </div>
+      {% if form.reverb_url.errors %}
       <ul>
-        {% for error in form.non_field_errors %}
+        {% for error in form.reverb_url.errors %}
           <li>{{ error }}</li>
         {% endfor %}
       </ul>
-    {% endif %}
-  </form>
-  <table class="job-table">
-    <thead>
-      <tr>
-        <th>Job ID</th>
-        <th>Status</th>
-        <th>Started at</th>
-        <th>Ended at</th>
-        <th>Search URL</th>
-        <th>JSON</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% if jobs %}
-        {% for job in jobs %}
-          <tr>
-            <td>{{ job.id }}</td>
-            <td><span class="status-{{ job.status|lower }}">{{ job.status }}</span></td>
-            <td>{{ job.started_at|date:"M d, Y H:i" }}</td>
-            <td>{{ job.ended_at|date:"M d, Y H:i" }}</td>
-            <td class="url-cell">
-              <a href="{{ job.search_url }}" target="_blank" rel="noopener noreferrer" title="{{ job.search_url }}">
-                🔗 Link
-              </a>
-            </td>
-            <td>
-              {% if job.status == 'completed' %}
-                <a href="{% url 'core:download_job_json' job.id %}" target="_blank" rel="noopener noreferrer">
-                  Download JSON
-                </a>
-              {% else %}
-                &mdash;
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="6" style="text-align:center; padding:1em;">No jobs found</td>
-        </tr>
       {% endif %}
-    </tbody>
-  </table>
+      {% if form.non_field_errors %}
+        <ul>
+          {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </form>
+    <table class="job-table">
+      <thead>
+        <tr>
+          <th>Job ID</th>
+          <th>Status</th>
+          <th>Started at</th>
+          <th>Ended at</th>
+          <th>Search URL</th>
+          <th>JSON</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if jobs %}
+          {% for job in jobs %}
+            <tr>
+              <td>{{ job.id }}</td>
+              <td><span class="status-{{ job.status|lower }}">{{ job.status }}</span></td>
+              <td>{{ job.started_at|date:"M d, Y H:i" }}</td>
+              <td>{{ job.ended_at|date:"M d, Y H:i" }}</td>
+              <td class="url-cell">
+                <a href="{{ job.search_url }}" target="_blank" rel="noopener noreferrer" title="{{ job.search_url }}">
+                  🔗 Link
+                </a>
+              </td>
+              <td>
+                {% if job.status == 'completed' %}
+                  <a href="{% url 'core:download_job_json' job.id %}" target="_blank" rel="noopener noreferrer">
+                    Download JSON
+                  </a>
+                {% else %}
+                  &mdash;
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="6" style="text-align:center; padding:1em;">No jobs found</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </main>
 {% endblock %}

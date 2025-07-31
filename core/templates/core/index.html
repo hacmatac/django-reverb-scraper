@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+{% block styles %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+{% endblock %}
+{% block header %}
+  <header class="site-header">
+    {% if user.is_authenticated %}
+      <form method="post" action="{% url 'accounts:logout' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+      </form>
+    {% endif %}
+  </header>
+{% endblock %}

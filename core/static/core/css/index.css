@@ -1,0 +1,28 @@
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60px;
+  background-color: #111111;
+}
+
+.logout-form {
+  margin-right: 10px;
+}
+
+.logout-form button {
+  border: 1px solid #444444;
+  background-color: #222222;
+  color: #f8f8ff;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 5px 10px;
+  height: 25%;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.logout-form button:hover,
+.logout-form button:focus {
+  background-color: #444444;
+}

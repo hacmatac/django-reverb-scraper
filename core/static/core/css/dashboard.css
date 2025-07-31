@@ -1,36 +1,11 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 62.5%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: #f8f8ff;
-  margin: 0;
-  padding: 0;
-}
-
-#site-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 60px;
-  background-color: #111111;
-}
-
-#site-content {
+.site-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
-#search-url-form {
+.search-url-form {
   width: 80%;
   display: flex;
   gap: 10px;
@@ -40,15 +15,16 @@ body {
   margin-top: 5rem;
 }
 
-#search-url-form div {
+.search-url-form div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   width: 100%;
+  font-size: 1.4rem;
 }
 
-#search-url-form input {
+.search-url-form input {
   flex: 4;
   background: none;
   height: 2.6rem;
@@ -57,9 +33,12 @@ body {
   background-color: #f8f8ff;
   color: #111111;
   width: 100%;
+  box-shadow: none;
+  border: 1px solid #888;
+  outline: none;
 }
 
-#search-url-form button {
+.search-url-form button {
   flex: 1;
   background-color: #1976d2;
   border: 1px solid #1976d2;
@@ -67,42 +46,12 @@ body {
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1.4rem;
   padding: 5px 10px;
 }
 
-#search-url-form button:hover {
+.search-url-form button:hover {
   background-color: #1565c0;
   border: 1px solid #1565c0;
-}
-
-#logout-form {
-  margin-right: 10px;
-}
-
-#logout-form button {
-  border: 1px solid #444444;
-  background-color: #222222;
-  color: #f8f8ff;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 5px 10px;
-  height: 25%;
-  cursor: pointer;
-}
-
-#logout-form button:hover,
-#logout-form button:focus {
-  background-color: #444444;
-}
-
-#reverb-url {
-  font-size: 2.2rem;
-}
-
-li {
-  color: #6e7582;
-  cursor: pointer;
 }
 
 .job-table {
@@ -204,19 +153,19 @@ li {
 }
 
 @media (min-width: 768px) {
-  #search-url-form {
+  .search-url-form {
     width: 60%;
   }
 }
 
 @media (min-width: 1024px) {
-  #search-url-form div {
+  .search-url-form div {
     flex-direction: row;
   }
 }
 
 @media (min-width: 1280px) {
-  #search-url-form {
+  .search-url-form {
     width: 40%;
   }
   .job-table {
