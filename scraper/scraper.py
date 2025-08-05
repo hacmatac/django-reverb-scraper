@@ -8,6 +8,9 @@ import logging
 import random
 import time
 import json
+from decimal import Decimal
+from django.forms.models import model_to_dict
+
 import re
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "reverb.settings")
@@ -15,7 +18,6 @@ import django
 django.setup()
 from .models import Job, Listing
 from django.conf import settings
-
 
 root_url = "https://reverb.com"
 
@@ -168,10 +170,6 @@ def process_and_save_listings(list_of_listing_dicts, job_instance):
         for d in list_of_listing_dicts if d
     ]
     Listing.objects.bulk_create(instances)
-
-import json
-from decimal import Decimal
-from django.forms.models import model_to_dict
 
 def job_to_json(job):
     job_dict = model_to_dict(job, fields=[
